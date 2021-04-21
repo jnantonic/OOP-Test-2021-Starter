@@ -4,7 +4,7 @@ public class Note
 {
     private char note;
     private int duration;
-
+    private String type;
 
     public char getNote()
     {
@@ -22,11 +22,21 @@ public class Note
     {
         this.duration = duration;
     }
+    public String getType()
+    {
+        return type;
+    }
+    public void setType(String type)
+    {
+        this.type = type;
+    }
     @Override
     public String toString()
     {
-        return "Note [duration=" + duration + ", note=" + note + "]";
+        return "Note [duration=" + duration + ", note=" + note + ", type=" + type + "]";
     }
+
+    
 
     
 }
