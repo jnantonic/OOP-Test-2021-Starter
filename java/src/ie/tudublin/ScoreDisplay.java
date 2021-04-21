@@ -16,11 +16,19 @@ public class ScoreDisplay extends PApplet
 	
 	public void loadScore()
 	{
-		Table table = loadTable("score.csv");
+		Table table = loadTable("score.csv", "header");
 		for(TableRow row:table.rows())
 		{
 			Note n = new Note(row);
 			note.add(n);
+		}
+	}
+
+	public void printScore()
+	{
+		for(Note n:note)
+		{
+			println(n);
 		}
 	}
 
@@ -36,16 +44,24 @@ public class ScoreDisplay extends PApplet
 
 	public void setup() 
 	{
-		
+		loadScore();
+		printScore();
+
 	}
 
 	public void draw()
 	{
 		background(255);
-		
+		drawNotes();
 	}
+
+	int halfW = width / 2;
+	int halfH = height / 2;
 
 	void drawNotes()
 	{
+		fill(0);
+		
+		
 	}
 }
