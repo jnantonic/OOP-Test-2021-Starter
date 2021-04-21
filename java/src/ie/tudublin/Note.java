@@ -4,38 +4,24 @@ import processing.data.TableRow;
 
 public class Note
 {
-    private String note;
+    private char note;
     private int duration;
-    private String type;
-
-    public Note(TableRow row)
-    {   
-        this
-        (
-            row.getString("Note"),
-            row.getInt("Duration"),
-            row.getString("Type")
-        );
-    }
-
     
-    public Note(String note, int duration, String type)
+    public Note(char note, int duration)
     {
         this.note = note;
         this.duration = duration;
-        this.type = type;
     }
 
 
-    public String getNote() {
+    public char getNote() {
         return note;
     }
 
 
-    public void setNote(String note) {
+    public void setNote(char note) {
         this.note = note;
     }
-
 
     public int getDuration()
     {
@@ -45,19 +31,22 @@ public class Note
     {
         this.duration = duration;
     }
-    public String getType()
-    {
-        return type;
-    }
-    public void setType(String type)
-    {
-        this.type = type;
-    }
 
 
     @Override
-    public String toString() {
-        return "Note [duration=" + duration + ", note=" + note + ", type=" + type + "]";
+    public String toString() 
+    {
+        String tmp;
+
+        if(duration == 2)
+        {
+            tmp = "Crotchet";
+        }
+        else
+        {
+            tmp = "Quaver";
+        }
+        return note + "\t" + duration + "\t" + tmp;
     }
     
     
