@@ -8,12 +8,16 @@ import processing.data.TableRow;
 
 public class ScoreDisplay extends PApplet
 {
-	ArrayList<Note> note = new ArrayList<Note>();
+	
 
 	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
 	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 	
+	ArrayList<Note> note = new ArrayList<Note>();
+
+	private float border;
+
 	public void loadScore()
 	{
 		Table table = loadTable("score.csv", "header");
@@ -46,6 +50,7 @@ public class ScoreDisplay extends PApplet
 	{
 		loadScore();
 		printScore();
+		border = width * 0.1f;
 
 	}
 
@@ -55,13 +60,16 @@ public class ScoreDisplay extends PApplet
 		drawNotes();
 	}
 
-	int halfW = width / 2;
-	int halfH = height / 2;
+
 
 	void drawNotes()
 	{
-		fill(0);
-		
+		stroke(0);
+		for(int i = 1; i <= 5; i ++)
+		{
+			float x = map(i, 1, 5, border, width - border);
+			line(x, border, height / 2, width - border);
+		}
 		
 	}
 }
