@@ -64,12 +64,29 @@ public class ScoreDisplay extends PApplet
 
 	void drawNotes()
 	{
-		stroke(0);
+
+		for(int i = 0; i < note.size(); i ++)
+		{
+			Note n = note.get(i);
+			float x = map(i, 0, note.size(), border, width - border);
+			noStroke();
+			fill(0);
+			textAlign(CENTER);
+			textSize(20);
+			text(n.getNote(), x + 10, height / 2 - 50);
+
+		}
+
+
 		for(int i = 1; i <= 5; i ++)
 		{
-			float x = map(i, 1, 5, border, width - border);
-			line(x, border, height / 2, width - border);
+			float y = map(i, 1, 5, height / 2, height / 2 + 100);
+			stroke(0);
+			strokeWeight(3);
+			line(border, y, width - border, y);
 		}
+
+
 		
 	}
 }
